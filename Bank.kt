@@ -17,6 +17,10 @@ class Bank : Observer {
             exchangeRates["USD"] = getRandomExchangeRate()
             notifyObservers("Курсы валют обновлены: $exchangeRates")
         }, 0, 1, TimeUnit.HOURS)
+
+        // клиент для перевода средст
+        val additionalClient = Client(2, 10.0, "USD")
+        addClient(additionalClient)
     }
 
     fun addClient(client: Client) {
